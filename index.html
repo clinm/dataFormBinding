@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple form</title>
+    <link rel="stylesheet" href="websrc/foundation.min.css">
+</head>
+<body>
+<div class="row">
+    <div class="column medium-6">
+        <h2>Basic information</h2>
+        <form action="" bind-obj="myFirstForm">
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="name">Name: </label><input id="name" type="text" bind-val="name">
+                </div>
+                <div class="column medium-6" id="valuesFirst" >
+                    Values:
+                </div>
+            </div>
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="age">Age</label><input type="number" id="age" bind-val="age">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="favoriteDate">Your favorite date: </label>
+                    <input type="date" id="favoriteDate" bind-val="favoriteDate">
+                </div>
+            </div>
+        </form>
+        <div class="large button-group">
+            <a class="button" onclick="display(0);">Display values</a>
+        </div>
+    </div>
+
+    <div class="column medium-6">
+        <h2>Localisation</h2>
+        <form action="" bind-obj="mySecondForm">
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="city">City: </label><input id="city" type="text" bind-val="city">
+                </div>
+                <div class="column medium-6" id="valuesSecond">
+                    Value:
+                </div>
+            </div>
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="country">Country: </label>
+                    <select name="country" id="country" bind-val="country">
+                        <option value="france">France</option>
+                        <option value="uk">UK</option>
+                        <option value="usa">USA</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <div class="large button-group">
+            <a class="button" onclick="display(1);">Display values</a>
+        </div>
+    </div>
+</div>
+<script>
+    var ids = ['valuesFirst', 'valuesSecond'];
+    var displayContent = [];
+    var myFirstForm = {};
+    var mySecondForm = {};
+    var values = [myFirstForm, mySecondForm];
+
+    function display(id){
+        if(!displayContent[id]){
+            displayContent[id] = document.getElementById(ids[id]);
+        }
+
+        displayContent[id].innerHTML = JSON.stringify(values[id]);
+    }
+
+</script>
+<script src="dataFormBinding.js"></script>
+</body>
+</html>
