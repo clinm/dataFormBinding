@@ -56,6 +56,11 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+                <div class="column medium-6">
+                    <input id="happy" type="checkbox" bind-val="happy" ><label for="happy">Happy</label>
+                </div>
+            </div>
         </form>
         <div class="large button-group">
             <a class="button" onclick="display(1);">Display values</a>
@@ -66,7 +71,7 @@
     var ids = ['valuesFirst', 'valuesSecond'];
     var displayContent = [];
     var myFirstForm = {name : 'John Doe', age: 54};
-    var mySecondForm = {country: 'uk'};
+    var mySecondForm = {country: 'uk', happy: true};
     var values = [myFirstForm, mySecondForm];
 
     function display(id){

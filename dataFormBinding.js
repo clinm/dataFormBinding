@@ -21,6 +21,9 @@
                             var n = Number(src.value);
                             obj[attr] = n;
                             break;
+                        case 'checkbox':
+                            obj[attr] = src.checked;
+                            break;
                         case 'text' :
                         default:
                             obj[attr] = src.value;
@@ -48,7 +51,14 @@
         if(obj[attr]){
             switch(input.localName.toLocaleLowerCase()){
                 case 'input':
-                    input.value = obj[attr];
+                    switch(input.type){
+                        case 'checkbox':
+                            input.checked = obj[attr];
+                            break;
+                        default:
+                            input.value = obj[attr];
+                            break;
+                    }
                     break;
                 case 'select':
                     for(var i = 0; i < input.childElementCount; i++){
