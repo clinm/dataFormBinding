@@ -36,6 +36,34 @@ function initListener(obj, attr){
     };
 }
 
+/**
+ * Set default parameter for a given input. obj[attr] should contain
+ * the value to be injected in the input
+ * @param input
+ * @param {object} obj
+ * @param {string} attr
+ */
+function injectDefault(input, obj, attr){
+    if(obj[attr]){
+        switch(input.localName.toLocaleLowerCase()){
+            case 'input':
+                input.value = obj[attr];
+                break;
+            case 'select':
+                for(var i = 0; i < input.childElementCount; i++){
+                    if(input[i].value === obj[attr]){
+                        input.selectedIndex = i;
+                        break;
+                    }
+                }
+                break;
+            default:
+                console.log('Unknown element');
+                console.log(input);
+        }
+    }
+}
+
 // select all bind-obj attributes
 var form = document.querySelectorAll('[bind-obj]');
 
@@ -51,6 +79,9 @@ for(var i = 0; i < form.length; i++){
     var bindVal = form[i].querySelectorAll('[bind-val]');
     for(var j = 0; j < bindVal.length; j++){
         var objAttr = bindVal[j].getAttribute("bind-val");
+        //inject default if any
+        injectDefault(bindVal[j], window[objName], objAttr);
+
         bindVal[j].addEventListener('change', initListener(window[objName], objAttr), false);
     }
 }
