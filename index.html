@@ -20,7 +20,17 @@
             </div>
             <div class="row">
                 <div class="column medium-6">
-                    <label for="age">Age</label><input type="number" id="age" bind-val="age">
+                    <label for="age0">Age</label><input type="number" id="age0" bind-val="someone.0.age">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="age1">Age</label><input type="number" id="age1" bind-val="someone.1.age">
+                </div>
+            </div>
+            <div class="row">
+                <div class="column medium-6">
+                    <label for="age2">Age</label><input type="number" id="age2" bind-val="someone.2.age">
                 </div>
             </div>
             <div class="row">
@@ -40,7 +50,7 @@
         <form action="" bind-obj="mySecondForm">
             <div class="row">
                 <div class="column medium-6">
-                    <label for="city">City: </label><input id="city" type="text" bind-val="city">
+                    <label for="city">City: </label><input id="city" type="text" bind-val="city.name">
                 </div>
                 <div class="column medium-6" id="valuesSecond">
                     Value:
@@ -70,7 +80,7 @@
 <script>
     var ids = ['valuesFirst', 'valuesSecond'];
     var displayContent = [];
-    var myFirstForm = {name : 'John Doe', age: 54};
+    var myFirstForm = {name : 'John Doe', someone:[{},{age: 54}]};
     var mySecondForm = {country: 'uk', happy: true};
     var values = [myFirstForm, mySecondForm];
 
