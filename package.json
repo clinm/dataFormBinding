@@ -1,0 +1,32 @@
+{
+  "name": "dataformbinding",
+  "version": "0.0.1",
+  "description": "Simple data form binding to synchronise html inputs and javascript object",
+  "main": "dataFormBinding.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^2.3.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clinm/dataFormBinding.git"
+  },
+  "keywords": [
+    "data",
+    "form",
+    "binding"
+  ],
+  "author": "Matthieu CLIN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clinm/dataFormBinding/issues"
+  },
+  "homepage": "https://github.com/clinm/dataFormBinding#readme"
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic test</title>
+    <link rel="stylesheet" media="all" href="../node_modules/mocha/mocha.css">
+</head>
+<body>
+<div style="display:none">
+    <div>
+        <div bind-obj="mustBeCreated">
+
+        </div>
+    </div>
+    <div>
+        <form bind-obj="basicSynchro">
+            <input type="text" bind-val="inputText" id="inputText">
+            <input type="number" bind-val="inputNumber" id="inputNumber">
+        </form>
+        <!-- NOT in bind-obj scoope  -->
+        <form>
+            <input type="text" bind-val="inputNotInScope" id="inputNotInScope">
+        </form>
+    </div>
+    <div>
+        <form bind-obj="basicSelectAndCheck">
+            <input type="checkbox" id="inputCheckBox" bind-val="inputCheckBox">
+            <select name="inputSelect" id="inputSelect" bind-val="inputSelect">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+            </select>
+        </form>
+    </div>
+    <div>
+        <form bind-obj="defaultValue">
+            <input type="text" bind-val="defaultText" id="defaultText">
+            <input type="number" bind-val="defaultNumber" id="defaultNumber">
+            <input type="checkbox" bind-val="defaultCheckbox" id="defaultCheckbox">
+            <select name="inputSelect" id="defaultSelect" bind-val="defaultSelect">
+                <option value="a">a</option>
+                <option value="b">b</option>
+                <option value="c">c</option>
+            </select>
+        </form>
+    </div>
+</div>
+
+<div id="mocha"></div>
+<div id="messages"></div>
+<div id="fixtures"></div>
+<script>
+    var basicSynchro = {};
+    var defaultValue = {
+        defaultText: "defaultText",
+        defaultNumber: 50,
+        defaultCheckbox : true,
+        defaultSelect : "c"
+    }
+
+</script>
+
+<script src="../node_modules/mocha/mocha.js"></script>
+<script src="../node_modules/chai/chai.js"></script>
+<script src="../dataFormBinding.js"></script>
+<script>mocha.setup('bdd')</script>
+<script src="basicTest.js"></script>
+<script>mocha.run();</script>
+</body>
+</html>
