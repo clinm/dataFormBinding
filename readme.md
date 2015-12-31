@@ -42,9 +42,12 @@ There are two keywords in order to use this library:
 
 # Example
 One example is available on index.html. You can fill the forms and then click on 'display values' to discover the data recovered. 
-This example is very basic and is a mean to show all available features. Accurate tests will hopefully come later.
+This example is very basic and is a mean to show all available features.
+
+# Tests
+First run **npm install** and then go on basicTest.html
 
 # Incoming features
-- [ ] Automatic tests
+- [X] Automatic tests
 - [X] Handling default data (when the object is already filled with values we want to inject in the form)
 - [ ] Handling all type of data (date, datetime etc)
