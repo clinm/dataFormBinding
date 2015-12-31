@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,11 +14,11 @@
         </div>
     </div>
     <div>
-        <form bind-obj="basicSynchro">
+        <form bind-obj="basicSync">
             <input type="text" bind-val="inputText" id="inputText">
             <input type="number" bind-val="inputNumber" id="inputNumber">
         </form>
-        <!-- NOT in bind-obj scoope  -->
+        <!-- NOT in bind-obj scope  -->
         <form>
             <input type="text" bind-val="inputNotInScope" id="inputNotInScope">
         </form>
@@ -44,13 +45,36 @@
             </select>
         </form>
     </div>
+    <div>
+        <form bind-obj="advancedStructure">
+            <input type="text" bind-val="first.second.third.last" id="firstSecondThirdLast">
+            <input type="text" bind-val="first.second.third.last2" id="firstSecondThirdLast2">
+
+            <input type="text" bind-val="first.tab.0.last" id="firstTab0Last">
+            <input type="text" bind-val="first.tab.1.last" id="firstTab1Last">
+
+            <input type="text" bind-val="first.tab.0.0.last" id="firstTab00Last">
+            <input type="text" bind-val="first.tab.0.1.last" id="firstTab01Last">
+
+            <input type="text" bind-val="first.tab.0" id="firstTab0">
+            <input type="text" bind-val="first.tab.1" id="firstTab1">
+        </form>
+    </div>
+    <div>
+        <form bind-obj="baseIsArray">
+            <input type="text" bind-val="0" id="base0">
+            <input type="text" bind-val="1" id="base1">
+            <input type="text" bind-val="2" id="base2">
+        </form>
+    </div>
 </div>
 
 <div id="mocha"></div>
 <div id="messages"></div>
 <div id="fixtures"></div>
 <script>
-    var basicSynchro = {};
+    var advancedStructure, baseIsArray, basicSelectAndCheck;
+    var basicSync = {};
     var defaultValue = {
         defaultText: "defaultText",
         defaultNumber: 50,
