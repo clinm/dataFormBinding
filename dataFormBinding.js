@@ -69,8 +69,6 @@
                             val = src.checked;
                             break;
                         case 'radio':
-                            val = src.value;
-                            break;
                         case 'text' :
                         default:
                             val = src.value;
