@@ -11,11 +11,12 @@ I've decided not to implemented the two-way binding as it usually uses microTask
     * number: cast the input in an integer and update value
     * text: update value
     * checkbox: inject boolean
+    * radio: value attribute is used as 
     * others: handled as text
 - select
     * update value with the key
-- others
-    * not handled yet
+- textarea
+    * handled as text
         
 # Usage
 ## Keywords
@@ -45,9 +46,4 @@ One example is available on index.html. You can fill the forms and then click on
 This example is very basic and is a mean to show all available features.
 
 # Tests
-First run **npm install** and then go on basicTest.html
-
-# Incoming features
-- [X] Automatic tests
-- [X] Handling default data (when the object is already filled with values we want to inject in the form)
-- [ ] Handling all type of data (date, datetime etc)
+First run **npm install** and then go on basicTest.html. Tests are performed with Mocha and Chai.
