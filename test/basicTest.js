@@ -145,4 +145,32 @@ describe("BasicTest", function(){
             expect(baseIsArray[2]).equal("Junior");
         });
     });
+
+    describe("Text area and radio", function(){
+        it("should handle text area", function(){
+            var textArea = document.getElementById("inputAreaDefault");
+            expect(textArea.value).equal("John Doe is alive");
+
+            setInput("inputArea", "John Doe is alive");
+            expect(textAreaInputButton.inputArea).equal("John Doe is alive");
+        });
+
+        it("should handle input radio", function(){
+            setCheckBox("radiored", true);
+            expect(textAreaInputButton.radioColor).equal("red");
+
+
+            var inputRadioRed = document.getElementById("radioredD");
+            expect(inputRadioRed.checked).equal(false);
+
+            var inputRadioY = document.getElementById("radioyellowD");
+            expect(inputRadioY.checked).equal(false);
+
+            var inputRadioBlue = document.getElementById("radioblueD");
+            expect(inputRadioBlue.checked).equal(true);
+
+
+
+        });
+    });
 });

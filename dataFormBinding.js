@@ -68,6 +68,9 @@
                         case 'checkbox':
                             val = src.checked;
                             break;
+                        case 'radio':
+                            val = src.value;
+                            break;
                         case 'text' :
                         default:
                             val = src.value;
@@ -78,6 +81,9 @@
                     break;
                 case 'select':
                     setValue(obj, attr, src[src.selectedIndex].value);
+                    break;
+                case 'textarea':
+                    setValue(obj, attr, src.value);
                     break;
                 default:
                     console.log('Unknown element');
@@ -103,6 +109,11 @@
                     case 'checkbox':
                         input.checked = val;
                         break;
+                    case 'radio':
+                        if(input.value === val){
+                            input.checked = true;
+                        }
+                        break;
                     default:
                         input.value = val;
                         break;
@@ -115,6 +126,9 @@
                         break;
                     }
                 }
+                break;
+            case 'textarea':
+                input.value = val;
                 break;
             default:
                 console.log('Unknown element');

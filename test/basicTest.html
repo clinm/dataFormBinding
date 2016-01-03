@@ -67,6 +67,24 @@
             <input type="text" bind-val="2" id="base2">
         </form>
     </div>
+    <div>
+        <form bind-obj="textAreaInputButton">
+            <textarea name="inputArea" id="inputArea" bind-val="inputArea" cols="30" rows="10">
+            </textarea>
+
+            <textarea name="inputAreaDefault" id="inputAreaDefault" bind-val="inputAreaDefault" cols="30" rows="10">
+            </textarea>
+
+            <input type="radio" bind-val="radioColor" name="radioColor" value="red" id="radiored">
+            <input type="radio" bind-val="radioColor" name="radioColor" value="blue" id="radioblue">
+            <input type="radio" bind-val="radioColor" name="radioColor" value="yellow" id="radioyellow">
+
+
+            <input type="radio" bind-val="radioColorD" name="radioColorD" value="red" id="radioredD">
+            <input type="radio" bind-val="radioColorD" name="radioColorD" value="blue" id="radioblueD">
+            <input type="radio" bind-val="radioColorD" name="radioColorD" value="yellow" id="radioyellowD">
+        </form>
+    </div>
 </div>
 
 <div id="mocha"></div>
@@ -80,6 +98,11 @@
         defaultNumber: 50,
         defaultCheckbox : true,
         defaultSelect : "c"
+    }
+
+    var textAreaInputButton = {
+        inputAreaDefault: "John Doe is alive",
+        radioColorD : "blue"
     }
 
 </script>
