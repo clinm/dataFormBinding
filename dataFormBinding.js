@@ -51,11 +51,11 @@
      *  Initialise a new listener for a given object. Takes obj and attr
      *  as parameters. When the handleInput is called (when a change has occurred)
      *  it will update obj[attr] with the new value retrieved from the html element
-     * @param obj       The object to fill
+     * @param objName   The object name to fill
      * @param attr      The attribute of the object
      * @returns {function} event handle for addEventListener
      */
-    function initListener(obj, attr){
+    function initListener(objName, attr){
         return function (event){
             var src = event.target || event.srcElement;
             switch(src.localName.toLowerCase()){
@@ -75,13 +75,13 @@
                             break;
                     }
 
-                    setValue(obj, attr, val);
+                    setValue(window[objName], attr, val);
                     break;
                 case 'select':
-                    setValue(obj, attr, src[src.selectedIndex].value);
+                    setValue(window[objName], attr, src[src.selectedIndex].value);
                     break;
                 case 'textarea':
-                    setValue(obj, attr, src.value);
+                    setValue(window[objName], attr, src.value);
                     break;
                 default:
                     console.log('Unknown element');
@@ -151,7 +151,7 @@
             var objAttr = bindVal[j].getAttribute("bind-val");
             //inject default if any
             injectDefault(bindVal[j], window[objName], objAttr);
-            bindVal[j].addEventListener('change', initListener(window[objName], objAttr), false);
+            bindVal[j].addEventListener('change', initListener(objName, objAttr), false);
         }
     }
 })();
