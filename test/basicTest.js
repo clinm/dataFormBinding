@@ -91,6 +91,21 @@ describe("BasicTest", function(){
             expect(defaultCheckbox.checked).equal(true);
 
         });
+
+        it("should always use the global object", function(){
+            var tmp = globalObject;
+            setInput("globalObjectValue", "John");
+            expect(tmp.value).to.be.equal("John");
+            expect(globalObject.value).to.be.equal("John");
+
+            //reset object
+            globalObject = {};
+
+            setInput("globalObjectValue", "Jane");
+            // tmp is the old object before reset, and globalObject should be up to date
+            expect(tmp.value).to.be.equal("John");
+            expect(globalObject.value).to.be.equal("Jane");
+        });
     });
 
     describe("Advanced structure", function(){
